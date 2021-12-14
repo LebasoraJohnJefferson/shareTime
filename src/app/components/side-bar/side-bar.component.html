@@ -1,0 +1,15 @@
+<div class="sidebar-container">
+    <div class="header-menu">
+        <mat-icon>textsms</mat-icon>
+        <mat-icon>settings</mat-icon>
+    </div>
+    <div class="img-container">
+        <img [src]="profile" alt="profile" />
+        <div [class]="status ? 'online' : 'offline'"></div>
+        <div class='name'>{{name}}</div>
+    </div>
+    <div class='others'>
+        <button class="friends">FRIENDS</button>
+        <button class="logout">LOGOUT</button>
+    </div>
+</div>
