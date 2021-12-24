@@ -1,11 +1,11 @@
 .header{
-    position:fixed;
+    position:sticky;
     top:0;
     left:0;
     display:grid;
     width:100%;
     height: 100px;
-    box-shadow: 0px 3px 5px rgba(10,10,10,);
+    box-shadow: 0px 3px 5px rgba(10,10,10,.2);
     grid-template-rows: 70% 1fr;
     grid-template-columns: 1fr;
     .upper-content{
@@ -20,14 +20,6 @@
                 width: 15rem;
             }
         }
-        .auth-ui{
-            display:flex;
-            justify-content: end;
-            align-items: center;
-            .logout{
-                margin: 0px 5% 0px 5%;
-            }
-        }
     }
     .lower-content{
         display:flex;
@@ -35,11 +27,15 @@
         align-content: center;
         width:100%; height: 100%;
         div{
-            mat-icon{
-                font-size: 1.7rem;
-            }
-            mat-icon:hover{
-                color:rgb(233, 176, 32);
+            a{
+                text-decoration: none;
+                color:black;
+                mat-icon{
+                    font-size: 1.7rem;
+                }
+                mat-icon:hover{
+                    color:rgb(233, 176, 32);
+                }
             }
         }
     }

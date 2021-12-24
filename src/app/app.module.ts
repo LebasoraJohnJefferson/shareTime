@@ -10,6 +10,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { NavComponent } from './clients/components/nav/nav.component';
 import { HomeComponent } from './clients/Pages/home/home.component';
+import { SettingsComponent } from './clients/Pages/settings/settings.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { StoresComponent } from './clients/Pages/stores/stores.component';
+import { MessagesComponent } from './clients/Pages/messages/messages.component';
 
 
 @NgModule({
@@ -17,6 +21,9 @@ import { HomeComponent } from './clients/Pages/home/home.component';
     AppComponent,
     NavComponent,
     HomeComponent,
+    SettingsComponent,
+    StoresComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +31,8 @@ import { HomeComponent } from './clients/Pages/home/home.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
