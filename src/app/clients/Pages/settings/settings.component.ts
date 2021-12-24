@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-settings',
@@ -6,14 +6,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  @Input() isSubmit:boolean = true
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
 
-  onSubmit(){
-    this.isSubmit =!this.isSubmit
-  }
+  
 }

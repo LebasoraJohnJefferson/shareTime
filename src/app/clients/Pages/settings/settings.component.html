@@ -1,14 +1,3 @@
 <app-nav></app-nav>
+<app-register></app-register>
 
-<form class="Register">
-    <mat-form-field class="email">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Ex.me@gmail.com" value="">
-    </mat-form-field>
-    <mat-form-field class="password">
-      <mat-label>Password</mat-label>
-      <input matInput type='password' value="">
-    </mat-form-field>
-    <button *ngIf="isSubmit" (click)='onSubmit()'>Register</button>
-    <button *ngIf="!isSubmit" disabled><mat-spinner class='uploader' diameter ="40"></mat-spinner></button>
-</form>
