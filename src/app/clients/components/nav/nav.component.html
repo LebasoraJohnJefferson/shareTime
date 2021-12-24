@@ -2,15 +2,15 @@
     <div class ='upper-content' routerLink='/'>
         <div class ='logo' routerLink='/'><img src="../../../../assets/logo/shareTime.png" alt=""></div>
         <div class='search'>
-            <mat-icon (click)="searchBtn()" *ngIf="!isSearch">search</mat-icon>
+            <mat-icon class='search-icon' (click)="searchBtn()" *ngIf="!isSearch">search</mat-icon><p color=black>
         </div>
     </div>
     
     <div class='lower-content'>
-        <div><a routerLink='/'><mat-icon RouterLink=''>home</mat-icon></a></div>
-        <div><a routerLink='/stores'><mat-icon>stores</mat-icon></a></div>
-        <div><a routerLink='/messages'><mat-icon>messages</mat-icon></a></div>
-        <div><a routerLink='/settings'><mat-icon>settings</mat-icon></a></div>
+        <div><a [ngClass]="navClass == 'home' ? 'highlights' : ''" routerLink='/'><mat-icon RouterLink=''>home</mat-icon></a></div>
+        <div ><a [ngClass]="navClass == 'stores' ? 'highlights' : ''" routerLink='/stores'><mat-icon>stores</mat-icon></a></div>
+        <div><a [ngClass]="navClass == 'messages' ? 'highlights' : ''" routerLink='/messages'><mat-icon>messages</mat-icon></a></div>
+        <div><a [ngClass]="navClass == 'settings' ? 'highlights' : ''" routerLink='/settings'><mat-icon>settings</mat-icon></a></div>
     </div>
 </div>
 

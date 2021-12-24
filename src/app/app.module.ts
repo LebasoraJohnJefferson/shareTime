@@ -14,7 +14,6 @@ import { SettingsComponent } from './clients/Pages/settings/settings.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { StoresComponent } from './clients/Pages/stores/stores.component';
 import { MessagesComponent } from './clients/Pages/messages/messages.component';
-import { RegisterComponent } from './clients/components/register/register.component';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { RegisterComponent } from './clients/components/register/register.compon
     SettingsComponent,
     StoresComponent,
     MessagesComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,13 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
   @Input() isSearch:boolean = false
+  @Input() navClass:string =''
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.navClass)
   }
 
   searchBtn(){
     this.isSearch = !this.isSearch
   }
 
+  
 }
