@@ -1,3 +1,14 @@
+<div style='display:flex; width:100%;'>
+    <img width="100px" src='./src/assets/logo/shareTime.png' />
+</div>
+
+
+
+
+
+
+
+
 # ShareTimeFrontEnd
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
