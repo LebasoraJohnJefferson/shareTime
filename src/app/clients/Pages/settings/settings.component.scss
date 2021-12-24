@@ -11,10 +11,15 @@
     }
     button{
         border:none;
-        box-shadow: 0px 0px 5px rgba(10,10,10,.2);
-        outline: 1px solid rgba(0,0,0,.5);
+        padding:20px 0px;
+        box-shadow: 0px 0px 5px rgba(10,10,10,.2),
+                    0px 0px 1px rgba(10,10,10,.9);
+        background-color: rgba(0,0,0,.9);
+        color:orange;
         border-radius: .5rem;
         display:flex;
+        font-size:1.1rem;
+        font-weight: bold;
         justify-content: center;
         align-items: center;
         .mat-spinner {
@@ -22,7 +27,11 @@
                 stroke: orange;
             }
         }
-        
+    }
+    button:hover{
+        transition: all .7s ease-in-out;
+        background-color: rgba(0,0,0,.1);
+        color:black;
     }
 }
 

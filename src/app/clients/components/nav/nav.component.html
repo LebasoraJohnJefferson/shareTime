@@ -1,14 +1,15 @@
 <div class='header'>
     <div class ='upper-content' routerLink='/'>
         <div class ='logo'><img src="../../../../assets/logo/shareTime.png" alt=""></div>
-        <div>
+        <div class='search'>
+            <mat-icon>search</mat-icon>
         </div>
     </div>
     
     <div class='lower-content'>
         <div><a routerLink='/'><mat-icon RouterLink=''>home</mat-icon></a></div>
-        <div><a><mat-icon>store</mat-icon></a></div>
-        <div><a><mat-icon>messages</mat-icon></a></div>
+        <div><a routerLink='/stores'><mat-icon>stores</mat-icon></a></div>
+        <div><a routerLink='/messages'><mat-icon>messages</mat-icon></a></div>
         <div><a routerLink='/settings'><mat-icon>settings</mat-icon></a></div>
     </div>
 </div>

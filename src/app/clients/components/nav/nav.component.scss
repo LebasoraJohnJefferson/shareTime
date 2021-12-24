@@ -19,6 +19,16 @@
             img{
                 width: 15rem;
             }
+        }.search{
+            display:grid;
+            justify-content: center;
+            align-items: center;
+            mat-icon{
+                transform: translateY(-5px);
+                font-size: 2rem;
+            }
+        }.search:hover{
+            color:rgb(233, 176, 32);
         }
     }
     .lower-content{
@@ -29,7 +39,6 @@
         div{
             a{
                 text-decoration: none;
-                color:black;
                 mat-icon{
                     font-size: 1.7rem;
                 }
