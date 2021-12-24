@@ -39,13 +39,21 @@
         align-content: center;
         width:100%; height: 100%;
         div{
+            
             a{
                 text-decoration: none;
                 mat-icon{
+                    color:black;
                     font-size: 1.7rem;
                 }
                 mat-icon:hover{
                     color:rgb(233, 176, 32);
+                }
+                
+            }
+            .highlights{
+                mat-icon{
+                    color:darkgoldenrod;
                 }
             }
         }
@@ -87,8 +95,4 @@
         height: 39px;
     }
 
-}
-
-.highlights{
-    color:darkgoldenrod;
 }
