@@ -1,10 +1,6 @@
 <div style='display:flex; width:100%;'>
-    <img width="100px" src='./src/assets/logo/shareTime.png' />
+    <img width="500px" height="500px" src='./src/assets/logo/shareTime.png' />
 </div>
-
-
-
-
 
 
 
