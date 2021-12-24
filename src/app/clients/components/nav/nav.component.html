@@ -1,8 +1,8 @@
 <div class='header'>
     <div class ='upper-content' routerLink='/'>
-        <div class ='logo'><img src="../../../../assets/logo/shareTime.png" alt=""></div>
+        <div class ='logo' routerLink='/'><img src="../../../../assets/logo/shareTime.png" alt=""></div>
         <div class='search'>
-            <mat-icon>search</mat-icon>
+            <mat-icon (click)="searchBtn()" *ngIf="!isSearch">search</mat-icon>
         </div>
     </div>
     
@@ -12,4 +12,9 @@
         <div><a routerLink='/messages'><mat-icon>messages</mat-icon></a></div>
         <div><a routerLink='/settings'><mat-icon>settings</mat-icon></a></div>
     </div>
+</div>
+
+<div class="show-search" *ngIf="isSearch">
+    <input placeholder="Search Products...">
+    <mat-icon (click)="searchBtn()">search</mat-icon>
 </div>
