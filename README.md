@@ -1,5 +1,5 @@
-<div style='display:flex; width:100%;'>
-    <img width="250px" height="500px" src='./src/assets/logo/shareTime.png' />
+<div style='display:flex; width:100%;justify-content:center;align-items:center'>
+    <img width="500px" height="250px" src='./src/assets/logo/shareTime.png' />
 </div>
 
 
