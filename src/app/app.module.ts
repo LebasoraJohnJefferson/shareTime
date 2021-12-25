@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // #angular material 
 import {MatInputModule} from '@angular/material/input';
@@ -27,6 +28,7 @@ import { MessagesComponent } from './clients/Pages/messages/messages.component';
     MessagesComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -34,7 +36,7 @@ import { MessagesComponent } from './clients/Pages/messages/messages.component';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

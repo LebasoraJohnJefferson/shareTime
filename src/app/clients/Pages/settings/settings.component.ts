@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { timeInterval } from 'rxjs';
+import {AuthService} from '../../services/auth.service'
 
 @Component({
   selector: 'app-settings',
@@ -18,23 +20,37 @@ export class SettingsComponent implements OnInit {
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required])
   })
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(authName:string){
     if(authName=='login') {
-      this.isSubmit_login = !this.isSubmit_login
-      alert(this.formLogin)
+      if(this.formLogin.valid){
+        this.isSubmit_login = !this.isSubmit_login
+        setTimeout(()=>{
+          this.isSubmit_login = !this.isSubmit_login
+          alert('server not yet live')
+        },2000)
+      }else{
+        alert('invalid form')
+      }
     }else if(authName=='register') {
-      this.isSubmit_register = !this.isSubmit_register
-      alert(this.formRegister)
-    }
-    setTimeout(()=>
+      if(this.formRegister.valid){
         this.isSubmit_register = !this.isSubmit_register
-    ,2000)
+        this.authService.getAuth(this.formRegister.value).subscribe(()=>{
+            this.isSubmit_register = !this.isSubmit_register
+            alert('successfully register')
+        },(err)=>{
+          this.isSubmit_register = !this.isSubmit_register
+        })
+      }else{
+        alert('invalid output')
+      }
+    }
   }
+
   authNav(){
     this.isClick = !this.isClick
   }

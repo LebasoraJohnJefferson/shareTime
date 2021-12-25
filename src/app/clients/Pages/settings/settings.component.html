@@ -1,29 +1,29 @@
 <app-nav navClass='settings' ></app-nav>
-<form [formGroup]='formLogin' class="Register" *ngIf='!isClick'>
+<form [formGroup]='formLogin' class="Register" *ngIf='isClick'>
     <mat-form-field class="email">
       <mat-label>Email</mat-label>
-      <input formControlName="email"  matInput placeholder="Ex.me@gmail.com">
+      <input formControlName="email" type='email'  matInput placeholder="Ex.me@gmail.com">
     </mat-form-field>
     <mat-form-field class="password">
       <mat-label>Password</mat-label>
       <input formControlName="password" matInput type='password'>
     </mat-form-field>
-    <button *ngIf="!isSubmit_register" (click)='onSubmit("register")'>Register</button>
-    <button *ngIf="isSubmit_register" disabled><mat-spinner class='uploader' diameter ="40"></mat-spinner></button>
-    <div class='login'><p (click)='authNav()'>Already Have an Account?</p></div>
+    <button *ngIf="!isSubmit_login" (click)='onSubmit("login")'>Login</button>
+    <button *ngIf="isSubmit_login" disabled><mat-spinner class='uploader' diameter ="40"></mat-spinner></button>
+    <div class='login'><p (click)='authNav()'>No Account?</p></div>
 </form>
 
-<form class="Register" *ngIf='isClick' [formGroup]="formRegister">
+<form class="Register" *ngIf='!isClick' [formGroup]="formRegister">
     <mat-form-field class="email">
       <mat-label>Email</mat-label>
-      <input  formControlName='email' matInput placeholder="Ex.me@gmail.com">
+      <input  formControlName='email' type='email' matInput placeholder="Ex.me@gmail.com">
     </mat-form-field>
     <mat-form-field class="password">
       <mat-label>Password</mat-label>
       <input  formControlName='password' matInput type='password' >
     </mat-form-field>
-    <button *ngIf="!isSubmit_login" (click)='onSubmit("login")'>LOGIN</button>
-    <button *ngIf="isSubmit_login" disabled><mat-spinner class='uploader' diameter ="40"></mat-spinner></button>
-    <div class='login'><p (click)='authNav()'>No Account?</p></div>
+    <button *ngIf="!isSubmit_register" (click)='onSubmit("register")'>Register</button>
+    <button *ngIf="isSubmit_register" disabled><mat-spinner class='uploader' diameter ="40"></mat-spinner></button>
+    <div class='login'><p (click)='authNav()'>Already Have an Account?</p></div>
 </form>
 
