@@ -3,3 +3,8 @@ export interface Auth{
     password:String
 }
 
+export interface Login{
+    username:String,
+    password:String,
+}
+

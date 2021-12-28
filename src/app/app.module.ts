@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 // #angular material 
 import {MatInputModule} from '@angular/material/input';
@@ -37,6 +38,11 @@ import { MessagesComponent } from './clients/Pages/messages/messages.component';
     MatInputModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass:'toast',
+      preventDuplicates: true,
+    }),  
   ],
   providers: [],
   bootstrap: [AppComponent]

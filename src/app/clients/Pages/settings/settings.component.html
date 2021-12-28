@@ -1,5 +1,5 @@
 <app-nav navClass='settings' ></app-nav>
-<form [formGroup]='formLogin' class="Register" *ngIf='isClick'>
+<form [formGroup]='formLogin' class="Register" *ngIf='isClick' method='post'>
     <mat-form-field class="email">
       <mat-label>Email</mat-label>
       <input formControlName="email" type='email'  matInput placeholder="Ex.me@gmail.com">
