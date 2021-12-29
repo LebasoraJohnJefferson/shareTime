@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {AuthService} from '../../services/auth.service'
 import { ToastrService } from 'ngx-toastr';
-
+import { AuthService } from '../../services/auth.service';
+import { UsersService } from '../../services/users.service';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -12,6 +12,8 @@ export class SettingsComponent implements OnInit {
   @Input() isClick:boolean = true
   @Input() isSubmit_login:boolean = false
   @Input() isSubmit_register:boolean = false
+  authEmail:string = ''
+  authProfile:string = ''
   isAuthenticated = false
   result:string =''
   formLogin = new FormGroup({
@@ -22,12 +24,13 @@ export class SettingsComponent implements OnInit {
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required])
   })
-  constructor(private authService:AuthService,private toastr: ToastrService) { }
-
-  ngOnInit(): void {
+  constructor(private authService:AuthService,private userService:UsersService,private toastr: ToastrService) {
     this.check_token()
   }
-
+  
+  ngOnInit(): void {
+  }
+  //login btn fired
   onSubmit(authName:string){
     if(authName=='login') {
       if(this.formLogin.valid){
@@ -39,6 +42,15 @@ export class SettingsComponent implements OnInit {
           sessionStorage.setItem('access_token',response.access_token)
           this.toastr.success('Welcome Back','Successfully Login  ',{positionClass:'toast-bottom-right'})
           this.isSubmit_login = !this.isSubmit_login
+          this.check_token()
+          let access_token = sessionStorage.getItem('access_token')
+          if(access_token){
+            this.userService.getUser(access_token).subscribe(response=>{
+              this.authEmail = response.email
+            },error=>{
+              console.log(error)
+            })
+          }
         },(error)=>{
           this.result = error.status == 403 ? 'Account Does`nt Exist' : 'Server Down';
           this.toastr.warning('',this.result,{positionClass:'toast-bottom-right'})
@@ -47,6 +59,7 @@ export class SettingsComponent implements OnInit {
       }else{
         this.toastr.error('Invalid Input', 'Error',{positionClass:'toast-bottom-right'});
       }
+      //register btn fired
     }else if(authName=='register') {
       if(this.formRegister.valid){
         this.isSubmit_register = !this.isSubmit_register

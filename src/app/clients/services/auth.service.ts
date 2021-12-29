@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import {Auth,Login} from '../schemas/Auth'
 import { Backend } from './backend';
-import { catchError, Observable,of } from 'rxjs';
+import { Observable } from 'rxjs'
+import { Auth, Login } from '../schemas/Auth';
+
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -17,23 +18,23 @@ const httpMultipart = {
     'Authorization':'Authorized'
   })
 }
-
-
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
   constructor(private http:HttpClient ) { }
+
   //createUser
   createUser(auth:any):Observable<any>{
     const url = `${Backend}/users`
     return this.http.post<Auth>(url,auth,httpOption);
   }
-
+  //login
   login(auth:Login):Observable<any>{
     const url = `${Backend}/login`
     const body = `username=${auth.username}&password=${auth.password}`
     return this.http.post<any>(url,body,httpMultipart);
   }
+
 }
