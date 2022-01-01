@@ -17,6 +17,7 @@ import { SettingsComponent } from './clients/Pages/settings/settings.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { StoresComponent } from './clients/Pages/stores/stores.component';
 import { MessagesComponent } from './clients/Pages/messages/messages.component';
+import { AuthGuardGuard } from './clients/services/auth-guard.guard';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { MessagesComponent } from './clients/Pages/messages/messages.component';
       preventDuplicates: true,
     }),  
   ],
-  providers: [],
+  providers: [AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

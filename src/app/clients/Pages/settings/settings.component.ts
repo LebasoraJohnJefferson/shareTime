@@ -38,19 +38,11 @@ export class SettingsComponent implements OnInit {
         const new_object={'username':'','password':''}
         new_object['username'] = this.formLogin.value['email']
         new_object['password'] = this.formLogin.value['password']
-        this.authService.login(new_object).subscribe((response)=>{
+        this.userService.login(new_object).subscribe((response)=>{
           sessionStorage.setItem('access_token',response.access_token)
           this.toastr.success('Welcome Back','Successfully Login  ',{positionClass:'toast-bottom-right'})
           this.isSubmit_login = !this.isSubmit_login
           this.check_token()
-          let access_token = sessionStorage.getItem('access_token')
-          if(access_token){
-            this.userService.getUser(access_token).subscribe(response=>{
-              this.authEmail = response.email
-            },error=>{
-              console.log(error)
-            })
-          }
         },(error)=>{
           this.result = error.status == 403 ? 'Account Does`nt Exist' : 'Server Down';
           this.toastr.warning('',this.result,{positionClass:'toast-bottom-right'})
@@ -63,7 +55,7 @@ export class SettingsComponent implements OnInit {
     }else if(authName=='register') {
       if(this.formRegister.valid){
         this.isSubmit_register = !this.isSubmit_register
-        this.authService.createUser(this.formRegister.value).subscribe(()=>{
+        this.userService.createUser(this.formRegister.value).subscribe(()=>{
             this.isSubmit_register = !this.isSubmit_register
             this.toastr.success("successfully register",'Congratulation',{positionClass:'toast-bottom-right'})
           },error=>{
@@ -83,6 +75,13 @@ export class SettingsComponent implements OnInit {
 
   check_token(){
     this.isAuthenticated = sessionStorage.getItem('access_token') ? true : false
+    let access_token = sessionStorage.getItem('access_token')
+    if(access_token){
+      this.userService.getUser(access_token).subscribe(response=>{
+        this.authEmail = response.email
+      },error=>{
+        this.toastr.warning('','Invalid Credentials',{positionClass:'toast-bottom-right'})
+      })
+    }
   }
-
 }
