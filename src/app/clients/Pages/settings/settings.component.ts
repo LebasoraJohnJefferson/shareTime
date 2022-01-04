@@ -12,6 +12,12 @@ export class SettingsComponent implements OnInit {
   @Input() isClick:boolean = true
   @Input() isSubmit_login:boolean = false
   @Input() isSubmit_register:boolean = false
+  randomProfile = [
+    './../../../../assets/img/ch1.png',
+    './../../../../assets/img/ch2.jpg',
+    './../../../../assets/img/ch3.jpg',
+    './../../../../assets/img/ch4.jpg'
+  ]
   authEmail:string = ''
   authProfile:string = ''
   isAuthenticated = false
@@ -79,6 +85,7 @@ export class SettingsComponent implements OnInit {
     if(access_token){
       this.userService.getUser(access_token).subscribe(response=>{
         this.authEmail = response.email
+        this.authProfile = response.profile ? response.profile : this.randomProfile[Math.floor(Math.random()*4)]  
       },error=>{
         this.toastr.warning('','Invalid Credentials',{positionClass:'toast-bottom-right'})
       })

@@ -29,7 +29,10 @@
   </form>
 </div>
 
-<div *ngIf = 'isAuthenticated'>
-  {{authEmail}}
+<div *ngIf = 'isAuthenticated' class='card'>
+  <div class='card-container'>
+    <img [src]="authProfile" alt="" >
+    <div class='card-email'>{{authEmail}}</div>
+  </div>
 </div>
 
