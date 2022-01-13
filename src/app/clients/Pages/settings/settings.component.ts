@@ -48,6 +48,7 @@ export class SettingsComponent implements OnInit {
           sessionStorage.setItem('access_token',response.access_token)
           this.toastr.success('Welcome Back','Successfully Login  ',{positionClass:'toast-bottom-right'})
           this.isSubmit_login = !this.isSubmit_login
+          console.log(response)
           this.check_token()
         },(error)=>{
           this.result = error.status == 403 ? 'Account Does`nt Exist' : 'Server Down';
@@ -81,13 +82,20 @@ export class SettingsComponent implements OnInit {
 
   check_token(){
     this.isAuthenticated = sessionStorage.getItem('access_token') ? true : false
-    let access_token = sessionStorage.getItem('access_token')
+    const access_token = sessionStorage.getItem('access_token')
     if(access_token){
       this.userService.getUser(access_token).subscribe(response=>{
         this.authEmail = response.email
-        this.authProfile = response.profile ? response.profile : this.randomProfile[Math.floor(Math.random()*4)]  
+        let temp = this.randomProfile[Math.floor(Math.random()*4)]
+        this.authProfile = response.profile ? response.profile : temp
+        if(!response.profile) this.userService.profile(access_token,temp).subscribe(res=>{
+          console.log(res)
+        },error=>console.log(error))
+          
       },error=>{
         this.toastr.warning('','Invalid Credentials',{positionClass:'toast-bottom-right'})
+        sessionStorage.removeItem('access_token')
+        this.isAuthenticated=!this.isAuthenticated
       })
     }
   }

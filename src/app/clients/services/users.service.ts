@@ -29,7 +29,7 @@ export class UsersService {
   }
   
   getUser(access_token:string):Observable<any>{
-    let url = `${Backend}/users`
+    const url = `${Backend}/users`
     return this.http.get(url,{  
       'responseType':'json',
       headers:{Authorization: `Bearer ${access_token}`},
@@ -49,6 +49,13 @@ export class UsersService {
     return this.http.post<any>(url,body,httpMultipart);
   }
 
+  profile(access_token:string,profile:string):Observable<any>{
+    const url = `${Backend}/users/profile`
+    return this.http.put<any>(url,{"profile":`${profile}`},{  
+      'responseType':'json',
+      headers:{Authorization: `Bearer ${access_token}`},
+    })
+  }
 
 
 }
