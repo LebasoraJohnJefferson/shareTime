@@ -18,6 +18,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { StoresComponent } from './clients/Pages/stores/stores.component';
 import { MessagesComponent } from './clients/Pages/messages/messages.component';
 import { AuthGuardGuard } from './clients/services/auth-guard.guard';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AuthGuardGuard } from './clients/services/auth-guard.guard';
     MatInputModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    MatTabsModule,
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass:'toast',
